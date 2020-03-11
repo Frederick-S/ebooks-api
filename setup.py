@@ -1,9 +1,7 @@
 from setuptools import setup, find_packages
 
-requires = [
-    'Flask==1.1.1',
-    'requests==2.23.0'
-]
+with open('requirements.txt') as f:
+    requires = f.read().splitlines()
 
 setup(
     name='ebooks',
