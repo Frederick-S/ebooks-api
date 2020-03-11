@@ -7,7 +7,7 @@ from ebooks.provider.ebook_provider_factory import EbookProviderFactory
 def get_ebooks():
     provider = request.args.get('provider')
     book_name = request.args.get('book_name')
-    last_book_id = request.args.get('last_book_id') or 0
+    last_book_index = request.args.get('last_book_index') or 0
     page_size = request.args.get('page_size') or 20
     ebook_provider = EbookProviderFactory.create(provider)
 
@@ -17,6 +17,6 @@ def get_ebooks():
     if not book_name:
         return 'Missing book_name', 400
 
-    ebooks = ebook_provider.get_ebooks(book_name, last_book_id, page_size)
+    ebooks = ebook_provider.get_ebooks(book_name, last_book_index, page_size)
 
     return jsonify([ebook.serialize() for ebook in ebooks])
