@@ -12,6 +12,6 @@ def create_app(config_name):
 
     init_api_routes()
 
-    app.register_blueprint(api_blueprint, url_prefix='/api/v1')
+    app.register_blueprint(api_blueprint, url_prefix='/v1.0')
 
     return app
