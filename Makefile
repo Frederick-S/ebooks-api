@@ -1,5 +1,5 @@
 run:
-	python run.py
+	python app.py
 
 test:
 	python setup.py test
