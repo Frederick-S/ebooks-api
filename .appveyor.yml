@@ -1,6 +1,5 @@
 image: Visual Studio 2019
 environment:
-  nodejs_version: "LTS"
   matrix:
     - PYTHON: "C:\\Python36"
       PYTHON_ARCH: 32
@@ -16,8 +15,8 @@ install:
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - python --version
   - "%PYTHON%\\python.exe -m pip install pycodestyle"
+  - "%PYTHON%\\python.exe -m pip install lxml"
   - "%PYTHON%\\python.exe setup.py install"
-  - ps: Install-Product node $env:nodejs_version
 before_test:
   - "%PYTHON%\\Scripts\\pycodestyle.exe ."
 test_script:
