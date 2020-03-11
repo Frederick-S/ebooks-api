@@ -1,9 +1,11 @@
+from ebooks.provider.duokan import DuokanEbookProvider
 from ebooks.provider.weread import WereadEbookProvider
 
 
 class EbookProviderFactory:
     providers = {
-        'weread': WereadEbookProvider()
+        'weread': WereadEbookProvider(),
+        'duokan': DuokanEbookProvider()
     }
 
     @staticmethod

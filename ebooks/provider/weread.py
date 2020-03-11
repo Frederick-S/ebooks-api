@@ -6,10 +6,10 @@ from ebooks.provider.ebook_provider import EbookProvider
 class WereadEbookProvider(EbookProvider):
     def __init__(self):
         self.url = 'https://weread.qq.com/web/search/global?' \
-                   'keyword={}&maxIdx={}&count={}'
+                   'keyword={}&maxIdx={}&count=20'
 
-    def get_ebooks(self, book_name, last_book_index, page_size):
-        url = self.url.format(book_name, last_book_index, page_size)
+    def get_ebooks(self, book_name, last_book_index, page_index):
+        url = self.url.format(book_name, last_book_index)
         response = requests.get(url)
 
         if response.status_code != requests.codes.ok:
