@@ -4,10 +4,10 @@ with open('requirements.txt') as f:
     requires = f.read().splitlines()
 
 setup(
-    name='ebooks',
+    name='ebooks-api',
     version='0.0.1',
     description='Search ebooks from various sites.',
-    url='https://github.com/Frederick-S/ebooks',
+    url='https://github.com/Frederick-S/ebooks-api',
     packages=find_packages(exclude=['tests']),
     include_package_data=True,
     install_requires=requires,
