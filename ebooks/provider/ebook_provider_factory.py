@@ -1,3 +1,4 @@
+from ebooks.provider.douban import DoubanEbookProvider
 from ebooks.provider.duokan import DuokanEbookProvider
 from ebooks.provider.epubit import EpubitEbookProvider
 from ebooks.provider.turing import TuringEbookProvider
@@ -9,7 +10,8 @@ class EbookProviderFactory:
         'weread': WereadEbookProvider(),
         'duokan': DuokanEbookProvider(),
         'turing': TuringEbookProvider(),
-        'epubit': EpubitEbookProvider()
+        'epubit': EpubitEbookProvider(),
+        'douban': DoubanEbookProvider()
     }
 
     @staticmethod

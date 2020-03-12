@@ -37,3 +37,10 @@ class EbookTestCase(BaseTestCase):
 
         self.assertEqual(200, response.status_code)
         self.assertTrue(len(response.json) > 0)
+
+    def test_get_ebooks_douban(self):
+        response = self.client.get(
+            '/v1.0/ebooks?provider=douban&book_name=python')
+
+        self.assertEqual(200, response.status_code)
+        self.assertTrue(len(response.json) > 0)
