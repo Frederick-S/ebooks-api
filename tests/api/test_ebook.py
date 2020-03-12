@@ -1,7 +1,7 @@
 from tests.base_test import BaseTestCase
 
 
-class NotebookTestCase(BaseTestCase):
+class EbookTestCase(BaseTestCase):
     def test_get_ebooks_with_invalid_parameters(self):
         response1 = self.client.get('v1.0/ebooks')
         response2 = self.client.get(
