@@ -1,4 +1,5 @@
 from ebooks.provider.duokan import DuokanEbookProvider
+from ebooks.provider.epubit import EpubitEbookProvider
 from ebooks.provider.turing import TuringEbookProvider
 from ebooks.provider.weread import WereadEbookProvider
 
@@ -7,7 +8,8 @@ class EbookProviderFactory:
     providers = {
         'weread': WereadEbookProvider(),
         'duokan': DuokanEbookProvider(),
-        'turing': TuringEbookProvider()
+        'turing': TuringEbookProvider(),
+        'epubit': EpubitEbookProvider()
     }
 
     @staticmethod

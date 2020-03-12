@@ -30,3 +30,10 @@ class NotebookTestCase(BaseTestCase):
 
         self.assertEqual(200, response.status_code)
         self.assertTrue(len(response.json) > 0)
+
+    def test_get_ebooks_epubit(self):
+        response = self.client.get(
+            '/v1.0/ebooks?provider=epubit&book_name=python')
+
+        self.assertEqual(200, response.status_code)
+        self.assertTrue(len(response.json) > 0)
