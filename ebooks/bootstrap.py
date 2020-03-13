@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 from config import configs
 from ebooks.api.api_blueprint import api_blueprint
 from ebooks.api.api_bootstrap import init_api_routes
@@ -10,6 +11,7 @@ def create_app(config_name):
                 static_folder='static/dist', static_url_path='')
     app.config.from_object(config)
 
+    CORS(app)
     init_api_routes()
 
     app.register_blueprint(api_blueprint, url_prefix='/v1.0')
