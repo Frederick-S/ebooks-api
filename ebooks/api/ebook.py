@@ -15,7 +15,7 @@ def get_ebooks():
         return 'Invalid ebook provider', 400
 
     if not book_name:
-        return 'Missing book_name', 400
+        return 'Missing bookName', 400
 
     ebooks = ebook_provider.get_ebooks(
         book_name, last_book_index, page_index)
