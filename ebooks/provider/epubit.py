@@ -8,8 +8,8 @@ class EpubitEbookProvider(EbookProvider):
         self.url = 'https://pubcloud.ptpress.cn/pubcloud/operation/front/' \
                    'portal/search?keyword={}&page={}&type=ubook&row=20'
 
-    def get_ebooks(self, book_name, last_book_index, page_index):
-        url = self.url.format(book_name, page_index)
+    def get_ebooks(self, title, last_book_index, page_index):
+        url = self.url.format(title, page_index)
         headers = {'Origin-Domain': 'www.epubit.com'}
         response = requests.get(url, headers=headers)
 

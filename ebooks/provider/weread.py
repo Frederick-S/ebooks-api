@@ -8,8 +8,8 @@ class WereadEbookProvider(EbookProvider):
         self.url = 'https://weread.qq.com/web/search/global?' \
                    'keyword={}&maxIdx={}&count=20'
 
-    def get_ebooks(self, book_name, last_book_index, page_index):
-        url = self.url.format(book_name, last_book_index)
+    def get_ebooks(self, title, last_book_index, page_index):
+        url = self.url.format(title, last_book_index)
         response = requests.get(url)
 
         if response.status_code != requests.codes.ok:

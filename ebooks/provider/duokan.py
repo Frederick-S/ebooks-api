@@ -8,8 +8,8 @@ class DuokanEbookProvider(EbookProvider):
     def __init__(self):
         self.url = 'https://www.duokan.com/search/{}/{}'
 
-    def get_ebooks(self, book_name, last_book_index, page_index):
-        url = self.url.format(book_name, page_index)
+    def get_ebooks(self, title, last_book_index, page_index):
+        url = self.url.format(title, page_index)
         response = requests.get(url)
 
         if response.status_code != requests.codes.ok:

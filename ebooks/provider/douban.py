@@ -7,11 +7,11 @@ class DoubanEbookProvider(EbookProvider):
     def __init__(self):
         self.url = 'https://read.douban.com/j/search_v2'
 
-    def get_ebooks(self, book_name, last_book_index, page_index):
+    def get_ebooks(self, title, last_book_index, page_index):
         data = {
             "sort": "default",
             "page": page_index,
-            "q": book_name,
+            "q": title,
             "query": "query getFilterWorksList($works_ids: [ID!]) {      "
                      "worksList(worksIds: $works_ids) {                "
                      "title    cover    url    isBundle    isOrigin    "
