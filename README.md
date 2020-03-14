@@ -14,7 +14,7 @@ GET /v1.0/ebooks
 |provider   |Y   |The ebook provider, one of `weread,duokan,douban,turing,epubit`.   |
 |title   |Y   |The title of book.   |
 |lastBookIndex   |N   |Only required by `weread`. When this value is set, it queries books whose index is greater than `lastBookIndex`.   |
-|pageIndex|N|Required by `duokan,douban,turing,epubit`, When this value is set, it queries books after `pageIndex - 1` pages.|
+|pageIndex|N|Required by `duokan,douban,turing,epubit`. When this value is set, it queries books after `pageIndex - 1` pages.|
 
 ## License
 [MIT](LICENSE)
