@@ -6,9 +6,9 @@ from ebooks.provider.ebook_provider_factory import EbookProviderFactory
 @api_blueprint.route('/ebooks', methods=['GET'])
 def get_ebooks():
     provider = request.args.get('provider')
-    book_name = request.args.get('book_name')
-    last_book_index = request.args.get('last_book_index') or 0
-    page_index = request.args.get('page_index') or 1
+    book_name = request.args.get('bookName')
+    last_book_index = request.args.get('lastBookIndex') or 0
+    page_index = request.args.get('pageIndex') or 1
     ebook_provider = EbookProviderFactory.create(provider)
 
     if not ebook_provider:
