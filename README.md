@@ -4,7 +4,7 @@
 ## API
 ### Query ebooks
 #### HTTP request
-```
+```http
 GET /v1.0/ebooks
 ```
 
@@ -18,12 +18,16 @@ GET /v1.0/ebooks
 
 #### Example
 ##### Request
-```
+```http
 GET /v1.0/ebooks?provider=weread&title=python
 ```
 
 ##### Response
-```json
+```http
+HTTP/1.1 200 OK
+Content-type: application/json
+Content-length: 123
+
 [
     {
         "author": "卢西亚诺·拉马略",
