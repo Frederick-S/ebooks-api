@@ -19,6 +19,9 @@ class KindleEbookProvider(EbookProvider):
         if response.status_code != requests.codes.ok:
             raise Exception(response.text)
 
+        if 'api-services-support@amazon.com' in response.text:
+            raise Exception('Blocked by Amazon')
+
         document = PyQuery(response.text)
         rows = document.find('div.s-result-list div[data-asin]')
         books = [PyQuery(book) for book in rows]
