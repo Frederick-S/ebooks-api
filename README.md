@@ -56,7 +56,7 @@ Content-length: 123
 ```
 
 ## Known issue
-Requests sent to `Amazon` might be occasionally blocked.
+Requests sent to `www.amazon.cn` might be occasionally blocked.
 
 ## License
 [MIT](LICENSE)
