@@ -15,11 +15,12 @@ class KindleEbookProvider(EbookProvider):
         }
         url = self.url.format(title, page_index)
         response = requests.get(url, headers=headers)
+        blocked = 'api-services-support@amazon.com' in response.text
 
         if response.status_code != requests.codes.ok:
-            raise Exception(response.text)
+            raise Exception('Blocked by Amazon' if blocked else response.text)
 
-        if 'api-services-support@amazon.com' in response.text:
+        if blocked:
             raise Exception('Blocked by Amazon')
 
         document = PyQuery(response.text)
