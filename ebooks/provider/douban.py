@@ -1,4 +1,5 @@
 import requests
+from fake_useragent import UserAgent
 from ebooks.provider.ebook import Ebook
 from ebooks.provider.ebook_provider import EbookProvider
 
@@ -45,9 +46,7 @@ class DoubanEbookProvider(EbookProvider):
                      "id        isOrigin      }    }"
         }
         headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
-                          'AppleWebKit/537.36 (KHTML, like Gecko) '
-                          'Chrome/80.0.3987.132 Safari/537.36'
+            'User-Agent': UserAgent(cache=False).random
         }
         response = requests.post(self.url, json=data, headers=headers)
 
