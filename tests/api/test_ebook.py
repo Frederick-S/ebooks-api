@@ -44,3 +44,10 @@ class EbookTestCase(BaseTestCase):
 
         self.assertEqual(200, response.status_code)
         self.assertTrue(len(response.json) > 0)
+
+    def test_get_ebooks_kindle(self):
+        response = self.client.get(
+            '/v1.0/ebooks?provider=kindle&title=python')
+
+        self.assertEqual(200, response.status_code)
+        self.assertTrue(len(response.json) > 0)
