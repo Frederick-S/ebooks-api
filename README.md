@@ -3,6 +3,12 @@
 
 Search ebooks from various sites, the server side of [ebooks-web](https://github.com/Frederick-S/ebooks-web).
 
+## Getting Started
+### Docker
+```sh
+docker run -p 5000:5000 xiaodanmao/ebooks-api
+```
+
 ## API
 ### Query ebooks
 #### HTTP request
