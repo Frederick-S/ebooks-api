@@ -9,4 +9,4 @@ RUN python setup.py install
 
 EXPOSE 5000
 
-CMD [ "gunicorn", "-c", "gunicorn.py", "app:app" ]
+CMD [ "gunicorn", "-c", "gunicorn.conf.py", "app:app" ]
