@@ -45,4 +45,4 @@ class JDEbookProvider(EbookProvider):
         response = requests.get(url)
         data = response.json()
 
-        return {x.get('id'): x.get('p') for x in data}
+        return {x.get('id'): float(x.get('p')) for x in data}
