@@ -6,7 +6,7 @@ from ebooks.provider.ebook_provider import EbookProvider
 
 class JDEbookProvider(EbookProvider):
     def __init__(self):
-        self.url = 'https://s-e.jd.com/Search?key={}&page={}'
+        self.url = 'https://s-e.jd.com/Search?key={}&page={}&enc=utf-8'
 
     def get_ebooks(self, title, last_book_index, page_index):
         url = self.url.format(title, page_index)
