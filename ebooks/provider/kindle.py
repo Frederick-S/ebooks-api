@@ -25,7 +25,8 @@ class KindleEbookProvider(EbookProvider):
             raise Exception('Blocked by Amazon')
 
         document = PyQuery(response.text)
-        rows = document.find('div.s-result-list div[data-asin]')
+        rows = document.find(
+            'div.s-result-list div[data-asin]:not([data-asin=""])')
         books = [PyQuery(book) for book in rows]
 
         return list(map(self.__convert_to_ebook, books))
