@@ -17,11 +17,16 @@ class WereadEbookProvider(EbookProvider):
 
         body = response.json()
         books = body.get('books', [])
+        ebooks = map(self.__convert_to_ebook, books)
 
-        return list(map(self.__convert_to_ebook, books))
+        return list(filter(self.__is_valid_book, ebooks))
 
     def __convert_to_ebook(self, book):
         book_info = book.get('bookInfo')
+
+        if book_info.get('format') != 'epub':
+            return None
+
         ebook = Ebook()
         ebook.title = book_info.get('title', '')
         ebook.author = book_info.get('author', '')
@@ -30,3 +35,6 @@ class WereadEbookProvider(EbookProvider):
         ebook.intro = book_info.get('intro', '')
 
         return ebook
+
+    def __is_valid_book(self, book):
+        return book is not None
