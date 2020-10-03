@@ -41,6 +41,9 @@ class JDEbookProvider(EbookProvider):
         return 'J_' + book.attr('data-sku')
 
     def __get_prices(self, sku_ids):
+        if not sku_ids:
+            return []
+
         url = 'https://p.3.cn/prices/mgets?skuIds={}'.format(','.join(sku_ids))
         response = requests.get(url)
         data = response.json()
