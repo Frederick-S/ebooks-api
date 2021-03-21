@@ -24,7 +24,7 @@ class WereadEbookProvider(EbookProvider):
     def __convert_to_ebook(self, book):
         book_info = book.get('bookInfo')
 
-        if book_info.get('format') != 'epub':
+        if book_info.get('format') != 'epub' or book_info.get('soldout') == 1:
             return None
 
         ebook = Ebook()
