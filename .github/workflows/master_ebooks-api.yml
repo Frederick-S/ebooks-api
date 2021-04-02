@@ -32,4 +32,4 @@ jobs:
       with:
         app-name: 'ebooks-api'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_7fc8386eb4884522807d911d92c69396 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_ea5ecf14035a4f3faa7a9a2b99fe2b1f }}
