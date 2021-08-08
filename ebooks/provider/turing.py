@@ -36,6 +36,6 @@ class TuringEbookProvider(EbookProvider):
     def __get_price(self, prices):
         for price in prices:
             if price.get('key', '') == 'Ebook':
-                return price.get('name', '')
+                return float(price.get('name', ''))
 
         return 0.0
