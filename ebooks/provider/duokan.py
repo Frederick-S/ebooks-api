@@ -27,6 +27,6 @@ class DuokanEbookProvider(EbookProvider):
         ebook.price = float(
             book.find('.u-price em').text().replace('¥', '').strip())
         ebook.cover = book.find('.cover img').attr('src')
-        ebook.intro = book.find('.desc').text()
+        ebook.abstract = book.find('.desc').text()
 
         return ebook

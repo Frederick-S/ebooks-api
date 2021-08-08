@@ -4,7 +4,7 @@ class Ebook:
         self.author = ''
         self.price = 0.0
         self.cover = ''
-        self.intro = ''
+        self.abstract = ''
 
     def serialize(self):
         return self.__dict__

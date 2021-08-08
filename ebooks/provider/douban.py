@@ -65,7 +65,7 @@ class DoubanEbookProvider(EbookProvider):
         ebook.author = self.__get_author(book)
         ebook.price = book.get('salesPrice', 0.0) / 100.0
         ebook.cover = book.get('cover', '')
-        ebook.intro = book.get('abstract', '')
+        ebook.abstract = book.get('abstract', '')
 
         return ebook
 

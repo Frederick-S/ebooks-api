@@ -32,7 +32,7 @@ class WereadEbookProvider(EbookProvider):
         ebook.author = book_info.get('author', '')
         ebook.price = book_info.get('price', 0.0)
         ebook.cover = book_info.get('cover', '')
-        ebook.intro = book_info.get('intro', '')
+        ebook.abstract = book_info.get('intro', '')
 
         return ebook
 
