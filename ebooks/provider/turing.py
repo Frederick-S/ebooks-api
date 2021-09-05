@@ -28,7 +28,8 @@ class TuringEbookProvider(EbookProvider):
         ebook.title = book.get('name', '')
         ebook.author = book.get('authorNameString', '')
         ebook.price = self.__get_price(book.get('bookEditionPrices', []))
-        ebook.cover = 'https://file.ituring.com.cn/LargeCover/{}'.format(book.get('coverKey', ''))
+        ebook.cover = 'https://file.ituring.com.cn/LargeCover/{}'.format(
+            book.get('coverKey', ''))
         ebook.abstract = book.get('abstract', '')
 
         return ebook
