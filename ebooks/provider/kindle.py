@@ -26,17 +26,17 @@ class KindleEbookProvider(EbookProvider):
 
         document = PyQuery(response.text)
         rows = document.find(
-            'div.s-result-list div[data-asin]:not([data-asin=""])')
+            'div.s-result-item[data-asin]:not([data-asin=""])')
         books = [PyQuery(book) for book in rows]
 
         return list(map(self.__convert_to_ebook, books))
 
     def __convert_to_ebook(self, book):
         row = PyQuery(book.find('div.sg-row')[1])
-        image_wrap = PyQuery(row.children()[0])
-        info_wrap = PyQuery(row.children()[1]).find('.sg-row')
-        title_author_wrap = PyQuery(info_wrap[0])
-        price_wrap = PyQuery(info_wrap[1])
+        info_wrap = PyQuery(row.children()[1])
+        sections = info_wrap.find('div.a-section div.a-section')
+        title_author_wrap = PyQuery(sections[0])
+        price_wrap = PyQuery(sections[2])
         price = price_wrap.find('.a-price-whole').text() + \
             price_wrap.find('.a-price-fraction').text()
 
@@ -45,9 +45,8 @@ class KindleEbookProvider(EbookProvider):
         ebook.author = title_author_wrap.find('h2')\
             .next().text().split('|')[0].strip()
         ebook.price = book.find('.u-price em').text()
-        ebook.cover = image_wrap\
-            .find('[data-component-type="s-product-image"] img')\
-            .attr('src')
-        ebook.price = float(price)
+        ebook.cover = book.find('span[data-component-type="s-product-image"]')\
+            .find('img').attr('src')
+        ebook.price = float(price) if price != '' else 0
 
         return ebook
