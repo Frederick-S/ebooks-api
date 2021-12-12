@@ -1,12 +1,11 @@
 import requests
-from pyquery import PyQuery
 from ebooks.provider.ebook import Ebook
 from ebooks.provider.ebook_provider import EbookProvider
 
 
 class DuokanEbookProvider(EbookProvider):
     def __init__(self):
-        self.url = 'https://www.duokan.com/search/{}/{}'
+        self.url = 'https://www.duokan.com/target/search/web/{}/{}'
 
     def get_ebooks(self, title, last_book_index, page_index):
         url = self.url.format(title, page_index)
@@ -15,18 +14,16 @@ class DuokanEbookProvider(EbookProvider):
         if response.status_code != requests.codes.ok:
             raise Exception(response.text)
 
-        document = PyQuery(response.text)
-        books = [PyQuery(book) for book in document.find('.u-list li')]
+        data = response.json()
 
-        return list(map(self.__convert_to_ebook, books))
+        return list(map(self.__convert_to_ebook, data.get('books', [])))
 
     def __convert_to_ebook(self, book):
         ebook = Ebook()
-        ebook.title = book.find('.title').text()
-        ebook.author = book.find('.u-author').text()
-        ebook.price = float(
-            book.find('.u-price em').text().replace('¥', '').strip())
-        ebook.cover = book.find('.cover img').attr('src')
-        ebook.abstract = book.find('.desc').text()
+        ebook.title = book.get('title', '')
+        ebook.author = book.get('authors', '')
+        ebook.price = book.get('price', '')
+        ebook.cover = book.get('cover', '')
+        ebook.abstract = book.get('summary', '')
 
         return ebook
