@@ -5,11 +5,16 @@ from ebooks.provider.ebook_provider import EbookProvider
 
 class DuokanEbookProvider(EbookProvider):
     def __init__(self):
-        self.url = 'https://www.duokan.com/target/search/web/{}/{}'
+        self.url = 'https://www.duokan.com/target/search/web?s={}&p={}'
 
     def get_ebooks(self, title, last_book_index, page_index):
         url = self.url.format(title, page_index)
-        response = requests.get(url)
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+                          'AppleWebKit/537.36 (KHTML, like Gecko) '
+                          'Chrome/80.0.3987.132 Safari/537.36'
+        }
+        response = requests.get(url, headers=headers)
 
         if response.status_code != requests.codes.ok:
             raise Exception(response.text)
