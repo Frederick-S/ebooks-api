@@ -1,7 +1,7 @@
 # ebooks-api - Search ebooks from various sites
 [![Build](https://github.com/Frederick-S/ebooks-api/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/Frederick-S/ebooks-api/actions/workflows/build.yml) [![codecov](https://codecov.io/gh/Frederick-S/ebooks-api/branch/master/graph/badge.svg)](https://codecov.io/gh/Frederick-S/ebooks-api)
 
-Search ebooks from various sites, the server side of [ebooks-web](https://github.com/Frederick-S/ebooks-web).
+Search ebooks from various sites, the server side code of [ebooks-web](https://github.com/Frederick-S/ebooks-web).
 
 ## API
 ### Query ebooks
