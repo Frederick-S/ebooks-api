@@ -1,5 +1,5 @@
 # ebooks-api - Search ebooks from various sites
-[![Build](https://github.com/Frederick-S/ebooks-api/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/Frederick-S/ebooks-api/actions/workflows/build.yml) [![codecov](https://codecov.io/gh/Frederick-S/ebooks-api/branch/master/graph/badge.svg)](https://codecov.io/gh/Frederick-S/ebooks-api) [![Maintainability](https://api.codeclimate.com/v1/badges/59306eeaf09e0cd50a6d/maintainability)](https://codeclimate.com/github/Frederick-S/ebooks-api/maintainability)
+[![Build](https://github.com/Frederick-S/ebooks-api/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/Frederick-S/ebooks-api/actions/workflows/build.yml) [![codecov](https://codecov.io/gh/Frederick-S/ebooks-api/branch/master/graph/badge.svg)](https://codecov.io/gh/Frederick-S/ebooks-api)
 
 Search ebooks from various sites, the server side of [ebooks-web](https://github.com/Frederick-S/ebooks-web).
 
