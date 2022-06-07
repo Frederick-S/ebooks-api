@@ -45,16 +45,6 @@ class EbookTestCase(BaseTestCase):
         self.assertEqual(200, response.status_code)
         self.assertTrue(len(response.json) > 0)
 
-    def test_get_ebooks_kindle(self):
-        try:
-            response = self.client.get(
-                '/v1.0/ebooks?provider=kindle&title=python')
-
-            if response.status_code == 200:
-                self.assertTrue(len(response.json) > 0)
-        except Exception as e:
-            pass
-
     def test_get_ebooks_jd(self):
         response = self.client.get(
             '/v1.0/ebooks?provider=jd&title=python')

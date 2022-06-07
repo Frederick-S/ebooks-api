@@ -13,10 +13,10 @@ GET /v1.0/ebooks
 #### Query parameters
 |Name   |Required   |Description   |
 |---|---|---|
-|provider   |Y   |The ebook provider, one of `weread,duokan,douban,turing,epubit,kindle,jd`.   |
+|provider   |Y   |The ebook provider, one of `weread,duokan,douban,turing,epubit,jd`.   |
 |title   |Y   |The title of book.   |
-|lastBookIndex   |N   |Only required by `weread`. When this value is set, it queries books whose index is greater than `lastBookIndex`.   |
-|pageIndex|N|Required by `duokan,douban,turing,epubit,kindle,jd`. When this value is set, it queries books after `pageIndex - 1` pages.|
+|lastBookIndex   |N   |Only required by `weread`. When this value is set, it queries books whose index is greater than `lastBookIndex`.  |
+|pageIndex|N|Required by `duokan,douban,turing,epubit,jd`. When this value is set, it queries books after `pageIndex - 1` pages.|
 
 #### Example
 ##### Request
